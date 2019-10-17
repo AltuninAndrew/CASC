@@ -11,18 +11,26 @@ namespace SAPR_Prj.Objects
         /// <summary>
         /// Li
         /// </summary>
-        public float Length;
+        public float Length { get => CalcLength(); }
 
         public NodeObj StartNode { get; private set; } = null;
         public NodeObj EndNode { get; private set; } = null;
 
 
-        public RodObj(float length)
+        public RodObj(float startPosX, float endPosX)
         {
-            Length = length;
-        
-        }
 
+            if (endPosX > startPosX)
+            {
+                StartNode = new NodeObj(startPosX);
+                EndNode = new NodeObj(endPosX);
+            }
+
+            else
+            {
+                throw new Exception("StartPosX>EndPosX");
+            }
+        }
         /// <summary>
         /// qi
         /// </summary>
