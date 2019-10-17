@@ -1,0 +1,31 @@
+﻿<Window x:Class="SAPR_Prj.PreProcWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SAPR_Prj"
+        mc:Ignorable="d"
+        Title="Preprocessor" Height="720" Width="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <DataGrid x:Name="Table1" CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="iD" />
+                <DataGridTextColumn Header="Start PosX" Binding="{Binding Path=StartNode.PosX}" Width="90" />
+                <DataGridTextColumn Header="End PosX" Binding="{Binding Path=EndNode.PosX}"  />
+                <DataGridTextColumn Header="Length" Binding="{Binding Path=Length}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>
