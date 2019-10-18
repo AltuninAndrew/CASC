@@ -5,76 +5,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace SAPR_Prj.Models
 {
     class PreProcModel
     {
-        public string Notif { get; private set; } = "";
-        public int NumberOfRods { get; private set; } = 0;
-        public int NumberOfNodes => CalcNumberOfNode();
+        private List<Node> _nodes;
+        private List<Rod> _rods;
+        public int NumOfRods { get => _rods.Count(); }
+        public int NumOfNodes { get => _nodes.Count(); }
 
-        public List<RodObj> _rods;
-        private List<NodeObj> _nodes;
 
-        public PreProcModel(RodObj[] rods)
+
+        public PreProcModel()
         {
-            NumberOfRods = rods.Length;
-            _rods = new List<RodObj>(NumberOfRods);
+            _nodes = new List<Node>();
+            _rods = new List<Rod>();
 
-            _nodes = new List<NodeObj>(NumberOfNodes);
-
-            _nodes.Add(rods[0].StartNode);
-
-            AddRods(rods);
         }
 
-        private int CalcNumberOfNode()
+        public void InitModel(int numOfRods)
         {
-            return NumberOfRods + 1;
+            Rod firstRod = new Rod(0);
+            _rods.Add(firstRod);
+            _nodes.Add(new Node(0, 0, firstRod));
+            _nodes.Add(new Node(1, firstRod.Length, firstRod));
+
+            AddRods(numOfRods-1);
+           
         }
 
-        public IReadOnlyList<RodObj> GetRods()
+        public IReadOnlyList<Rod> GetRods()
         {
             return _rods.AsReadOnly();
         }
-
-        public IReadOnlyList<NodeObj> GetNodes()
+        
+        public IReadOnlyList<Node> GetNodes()
         {
-           
             return _nodes.AsReadOnly();
         }
 
-        public void RemoveRod(int index)
+        public void AddRods(int numOfNewRods)
         {
-            _rods.RemoveAt(index);
-            NumberOfRods = _rods.Count; 
-            _nodes.RemoveRange(index, index + 1);
+            int ammount = _rods.Count + numOfNewRods;
+            for(int i = _rods.Count; i<ammount; i++)
+            {
+                _rods.Add(new Rod(i));
+                _nodes.Add(new Node(i + 1, _nodes[i].PosX + _rods[i].Length, _rods[i]));
+            }
         }
 
-        public void AddRods(RodObj[] rodObjs)
+        public void DeleteRod(int index)
         {
+            _rods.RemoveAt(index);
+            _nodes.RemoveRange(index,1);
 
-            List<RodObj> sortedRod = rodObjs.ToList();
+        }
 
-            sortedRod.Sort((a, b) => a.StartNode.PosX.CompareTo(b.StartNode.PosX));
-            
-            foreach(var element in sortedRod)
+        public void ReCalcNods()
+        {
+            for(int i = 0;i<_rods.Count;i++)
             {
-                if(_nodes.Last().PosX==element.StartNode.PosX)
-                {
-                    
-                    _nodes.Add(element.EndNode);
-                    _rods.Add(element);
-                }
-                else
-                {
-                    Notif += " \n Please set the node where the new node is further than the previous one";
-                }
+                _nodes[i + 1].PosX = _rods[i].Length + _nodes[i].PosX;
             }
-
-            NumberOfRods = _rods.Count;
-            
         }
 
     }

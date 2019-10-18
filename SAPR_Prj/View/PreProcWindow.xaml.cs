@@ -1,5 +1,4 @@
 ﻿using SAPR_Prj.Models;
-using SAPR_Prj.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,27 +21,28 @@ namespace SAPR_Prj
     /// </summary>
     public partial class PreProcWindow : Window
     {
-        class TestItem
-        {
-            public int Id { get; set; }
-            public float Value { get; set; }
-        }
-
+        PreProcModel model = new PreProcModel();
         public PreProcWindow()
         {
 
             InitializeComponent();
 
+           
+            model.InitModel(3);
 
-            PreProcModel preProcModel = new PreProcModel(new RodObj[] { new RodObj(0, 1), new RodObj(1,1.5f), new RodObj(1.5f,7) });
+            TableRods.DataContext = model.GetRods();
             
-
-            int countNodes = preProcModel.NumberOfNodes;
-
-            List<RodObj> rodObjs = preProcModel.GetRods().ToList();
-
-            Table1.DataContext = rodObjs;
         }
-        
+
+        private void BtnAddRods_Click(object sender, RoutedEventArgs e)
+        { 
+
+        }
+
+        private void EditedRod()
+        {
+           
+        }
+
     }
 }
