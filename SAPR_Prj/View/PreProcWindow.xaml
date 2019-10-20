@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:SAPR_Prj"
+        xmlns:vm="clr-namespace:SAPR_Prj.ViewModels"
         mc:Ignorable="d"
         Title="Preprocessor" Height="720" Width="1280">
+    
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,7 +24,7 @@
             <ColumnDefinition Width="425*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Name="BtnAddRods" Grid.Column="2" Grid.Row="1" Content="Add rods" Click="BtnAddRods_Click"></Button>
+        <Button Name="BtnAddRods" Grid.Column="2" Grid.Row="1" Content="Add rods" ></Button>
         <xctk:IntegerUpDown Name="BoxRodsNum" Grid.Column="2" Value="{Binding Path=numOfRods}"></xctk:IntegerUpDown>
 
         <DataGrid Name="TableRods" Grid.Column="1" 
@@ -31,10 +33,13 @@
                   Grid.RowSpan="2" 
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
-                  ItemsSource="{Binding}">
+                  ItemsSource="{Binding Rods}"
+                  CellEditEnding="TableRods_CellEditEnding">
+            
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
-                <DataGridTextColumn Header="Length" Binding="{Binding Path=Length}"/>
+                <DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Длина" Binding="{Binding Path=Length}"/>
+                <DataGridTextColumn Header="Площадь сечения" Binding="{Binding Path=Sectional}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 

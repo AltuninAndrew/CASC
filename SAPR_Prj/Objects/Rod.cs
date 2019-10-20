@@ -8,7 +8,7 @@ namespace SAPR_Prj.Objects
 {
     class Rod
     {
-        public int Id { get; private set; } = -1;
+        public int Id { get; set; } = -1;
         public float Length { get; set; } = 1;
         public float Sectional { get; set; } = 0;
         public float ElasticModulus { get; set; } = 0;
