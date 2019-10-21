@@ -14,12 +14,11 @@ namespace SAPR_Prj.Models
         public int NumOfRods { get => _rods.Count(); }
         public int NumOfNodes { get => _nodes.Count(); }
 
-        public PreProcModel(int numOfStartRods)
+        public PreProcModel()
         {
             _nodes = new List<Node>();
             _rods = new List<Rod>();
-            InitModel(numOfStartRods);
-
+            InitModel(1);
         }
 
         public void InitModel(int numOfRods)
@@ -33,14 +32,14 @@ namespace SAPR_Prj.Models
            
         }
 
-        public List<Rod> GetRods()
+        public IReadOnlyList<Rod> GetRods()
         {
-            return _rods;
+            return _rods.AsReadOnly();
         }
         
-        public List<Node> GetNodes()
+        public IReadOnlyList<Node> GetNodes()
         {
-            return _nodes;
+            return _nodes.AsReadOnly();
         }
 
         public void AddRods(int numOfNewRods)

@@ -21,22 +21,40 @@ namespace SAPR_Prj.ViewModels
         }
 
 
-        private readonly static PreProcModel _model = new PreProcModel(2);
+        private readonly PreProcModel _model = new PreProcModel();
 
-        public List<Rod> Rods
+
+        public IReadOnlyList<Rod> Rods
         {
-            get { return _model.GetRods().ToList(); }
+            get { return _model.GetRods(); }
         }
 
-        public ICommand Command1
+        public IReadOnlyList<Node> Nodes
+        {
+            get { return _model.GetNodes(); }
+        }
+
+
+        public ICommand CommitChange
         {
             get
             {
 
                 return new DelegateCommand((obj =>
                 {
-                   
-                    _model.GetRods();
+                    _model.ReCalcNods();
+                    
+                }));
+            }
+        }
+
+        public ICommand AddRods
+        {
+            get
+            {
+                return new DelegateCommand((obj =>
+                {
+                    _model.AddRods((int)obj);
                 }));
             }
         }

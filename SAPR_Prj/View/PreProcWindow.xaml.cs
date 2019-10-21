@@ -1,4 +1,5 @@
 ﻿using SAPR_Prj.Models;
+using SAPR_Prj.Objects;
 using SAPR_Prj.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,27 +23,28 @@ namespace SAPR_Prj
     /// </summary>
     public partial class PreProcWindow : Window
     {
-        PreProcWindowViewМodel vm = new PreProcWindowViewМodel();
+
+        PreProcModel model = new PreProcModel();
         public PreProcWindow()
         {
             InitializeComponent();
-           
-            DataContext = vm;
+
+            TableRods.DataContext = model.GetRods();
+            TableNodes.DataContext = model.GetNodes();
         }
 
-        private void TableRods_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+
+        private void BtnAddRods_Click(object sender, RoutedEventArgs e)
         {
-
-           string element;
-           element = e.Column.Header.ToString();
-           if (element == "Длина")
-           {
-                var elem = vm.Rods;
-                vm.Command1.Execute(objEdit);
-           }
-
-
+            var numOfRods = BoxNumOfRods.Value;
+            if (numOfRods != null)
+            {
+                BoxNumOfRods.Value = null;
+                model.AddRods((int)numOfRods);
+                TableRods.DataContext = model.GetRods();
+                TableNodes.DataContext = model.GetNodes();
+            }
+            
         }
-
     }
 }
