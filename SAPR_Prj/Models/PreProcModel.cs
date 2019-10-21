@@ -18,17 +18,16 @@ namespace SAPR_Prj.Models
         {
             _nodes = new List<Node>();
             _rods = new List<Rod>();
-            InitModel(1);
         }
 
-        public void InitModel(int numOfRods)
+        public void InitModel()
         {
             Rod firstRod = new Rod(0);
             _rods.Add(firstRod);
-            _nodes.Add(new Node(0, 0, firstRod));
+            Node firstNode = new Node(0, 0, firstRod);
+            firstNode.IsHaveRigidSupp = true;
+            _nodes.Add(firstNode);
             _nodes.Add(new Node(1, firstRod.Length, firstRod));
-
-            AddRods(numOfRods-1);
            
         }
 

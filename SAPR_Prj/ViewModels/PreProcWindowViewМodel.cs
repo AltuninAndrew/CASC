@@ -3,10 +3,13 @@ using SAPR_Prj.Models;
 using SAPR_Prj.Objects;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace SAPR_Prj.ViewModels
@@ -23,15 +26,21 @@ namespace SAPR_Prj.ViewModels
 
         private readonly PreProcModel _model = new PreProcModel();
 
-
-        public IReadOnlyList<Rod> Rods
+        public PreProcWindowViewМodel()
         {
-            get { return _model.GetRods(); }
+            _model.InitModel();
+            _model.AddRods(2);
         }
 
-        public IReadOnlyList<Node> Nodes
+
+        public ObservableCollection<Rod> Rods
         {
-            get { return _model.GetNodes(); }
+            get { return new ObservableCollection<Rod>(_model.GetRods()); }
+        }
+
+        public ObservableCollection<Node> Nodes
+        {
+            get { return new ObservableCollection<Node>(_model.GetNodes()); }
         }
 
 
@@ -48,17 +57,34 @@ namespace SAPR_Prj.ViewModels
             }
         }
 
+        public ICommand DellRods
+        {
+            get
+            {
+                return new DelegateCommand((obj =>
+                {
+                    int id = (int)obj;
+
+                }));
+
+            }
+        }
+
         public ICommand AddRods
         {
             get
             {
                 return new DelegateCommand((obj =>
                 {
-                    _model.AddRods((int)obj);
+                    if(obj!=null && (int)obj>0)
+                    {
+                        _model.AddRods((int)obj);
+                        OnPropertyChanged();
+                    }
+                    
                 }));
             }
         }
-
 
     }
 }

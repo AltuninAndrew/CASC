@@ -23,28 +23,12 @@ namespace SAPR_Prj
     /// </summary>
     public partial class PreProcWindow : Window
     {
-
-        PreProcModel model = new PreProcModel();
         public PreProcWindow()
         {
             InitializeComponent();
 
-            TableRods.DataContext = model.GetRods();
-            TableNodes.DataContext = model.GetNodes();
         }
 
 
-        private void BtnAddRods_Click(object sender, RoutedEventArgs e)
-        {
-            var numOfRods = BoxNumOfRods.Value;
-            if (numOfRods != null)
-            {
-                BoxNumOfRods.Value = null;
-                model.AddRods((int)numOfRods);
-                TableRods.DataContext = model.GetRods();
-                TableNodes.DataContext = model.GetNodes();
-            }
-            
-        }
     }
 }
