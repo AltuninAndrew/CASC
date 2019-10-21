@@ -3,29 +3,71 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:SAPR_Prj"
+        xmlns:vm="clr-namespace:SAPR_Prj.ViewModels"
         mc:Ignorable="d"
         Title="Preprocessor" Height="720" Width="1280">
+
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="285*"/>
+            <RowDefinition Height="324*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="348*"/>
         </Grid.ColumnDefinitions>
 
+        <Label Grid.Column="1" Grid.Row="2" Content="Количество стержней" FontSize="12" FontWeight="Bold" FontFamily="Consolas" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="24" Margin="0,0,55,1.604" Width="230" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
+        <Button Name="BtnAddRods" Grid.Column="3" Grid.Row="3" Content="Add rods" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF0096FF" Foreground="White" FontWeight="Bold" BorderBrush="White" Click="BtnAddRods_Click"/>
+        <xctk:IntegerUpDown Name="BoxNumOfRods" Grid.Column="2" Grid.Row="3" FontWeight="Bold" Background="White" Foreground="Black"/>
 
-        <DataGrid x:Name="Table1" CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding}">
+        <DataGrid Name="TableRods" 
+                  Grid.Row="4" 
+                  Margin="13,3.396,0,1.887" 
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding}"
+                  Grid.ColumnSpan="4" FontWeight="Bold">
+
             <DataGrid.Columns>
-                <DataGridTextColumn Header="iD" />
-                <DataGridTextColumn Header="Start PosX" Binding="{Binding Path=StartNode.PosX}" Width="90" />
-                <DataGridTextColumn Header="End PosX" Binding="{Binding Path=EndNode.PosX}"  />
-                <DataGridTextColumn Header="Length" Binding="{Binding Path=Length}"/>
+                <DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Длина" Binding="{Binding Path=Length}"/>
+                <DataGridTextColumn Header="Площадь сечения" Binding="{Binding Path=Sectional}"/>
+                <DataGridTextColumn Header="Модуль упругости" Binding="{Binding Path=ElasticModulus}"/>
+                <DataGridTextColumn Header="Допускаемое напряжение" Binding="{Binding Path=AllowStress}"/>
+                <DataGridTextColumn Header="Погонная нагрузка" Binding="{Binding Path=RunningLoad}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Name="TableNodes" 
+                  Grid.Row="5" 
+                  Margin="13,10.113,0,2.113" 
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding}"
+                  Grid.ColumnSpan="4" FontWeight="Bold">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Позиция по X" IsReadOnly="True" Binding="{Binding Path=PosX}"/>
+                <DataGridCheckBoxColumn Header="Жесткая опора" Binding="{Binding Path=IsHaveRigidSupp}"/>
+                <DataGridTextColumn Header="Продольные усилия" Binding="{Binding Path=LongForce}"/>
             </DataGrid.Columns>
         </DataGrid>
 
 
+
     </Grid>
+
+
 </Window>
