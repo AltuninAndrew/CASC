@@ -8,11 +8,116 @@ namespace SAPR_Prj.Objects
 {
     class Rod
     {
-        public int Id { get; set; } = -1;
-        public float Length { get; set; } = 1;
-        public float Sectional { get; set; } = 0;
-        public float ElasticModulus { get; set; } = 0;
-        public float AllowStress { get; set; } = 0;
+        private int _id = 0;
+        private float _length = 1;
+        private float _sectional = 1;
+        private float _eLascticModulus = 1;
+        private float _allowStress = 1;
+
+        public int Id
+        {
+            set
+            {
+                if (value >= 0)
+                {
+                    _id = value;
+                }
+
+                else
+                {
+                    //
+                }
+
+            }
+
+            get
+            {
+                return _id;
+            }
+
+        }
+
+        public float Length
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    _length = value;
+                }
+                else
+                {
+
+                }
+            }
+
+            get
+            {
+                return _length;
+            }
+
+        }
+
+        public float Sectional
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    _sectional = value;
+                }
+                else
+                {
+
+                }
+            }
+
+            get
+            {
+                return _sectional;
+            }
+        }
+
+        public float ElasticModulus
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    _eLascticModulus = value;
+                }
+                else
+                {
+
+                }
+            }
+
+            get
+            {
+                return _eLascticModulus;
+            }
+        }
+
+        public float AllowStress
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    _allowStress = value;
+                }
+                else
+                {
+
+                }
+            }
+
+            get
+            {
+                return _allowStress;
+            }
+        }
+
         public float RunningLoad { get; set; } = 0;
 
         public Rod(int id)

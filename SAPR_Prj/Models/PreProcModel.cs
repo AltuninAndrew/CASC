@@ -9,10 +9,13 @@ namespace SAPR_Prj.Models
 {
     class PreProcModel
     {
+        private const int MaxNumOfRodsInSystem = 1000;
         private List<Node> _nodes;
         private List<Rod> _rods;
         public int NumOfRods { get => _rods.Count(); }
         public int NumOfNodes { get => _nodes.Count(); }
+
+
 
         public PreProcModel()
         {
@@ -43,32 +46,49 @@ namespace SAPR_Prj.Models
 
         public void AddRods(int numOfNewRods)
         {
-            int ammount = _rods.Count + numOfNewRods;
-            for (int i = _rods.Count; i < ammount; i++)
+            if(numOfNewRods>0 && numOfNewRods<=MaxNumOfRodsInSystem)
             {
-                _rods.Add(new Rod(i));
-                _nodes.Add(new Node(i + 1, _nodes[i].PosX + _rods[i].Length, _rods[i]));
+                int ammount = _rods.Count + numOfNewRods;
+                for (int i = _rods.Count; i < ammount; i++)
+                {
+                    _rods.Add(new Rod(i));
+                    _nodes.Add(new Node(i + 1, _nodes[i].PosX + _rods[i].Length, _rods[i]));
+                }
             }
+            else
+            {
+                //to implement notification system
+            }
+
         }
 
         public void DeleteRod(int index)
         {
-            int indexEndNode = index + 1;
-            _rods.RemoveAt(index);
-            _nodes[0].TiedRod = _rods[0];
-            _nodes.RemoveAt(indexEndNode);
-            for(int i=0;i<_rods.Count; i++)
+            if (_rods.Count > 1)
             {
-                _rods[i].Id = i;
-                _nodes[i + 1].TiedRod = _rods[i];
+                int indexEndNode = index + 1;
+                _rods.RemoveAt(index);
+                _nodes[0].TiedRod = _rods[0];
+                _nodes.RemoveAt(indexEndNode);
+                for (int i = 0; i < _rods.Count; i++)
+                {
+                    _rods[i].Id = i;
+                    _nodes[i + 1].TiedRod = _rods[i];
+                }
+
+                for (int i = 0; i < _nodes.Count; i++)
+                {
+                    _nodes[i].Id = i;
+                }
+
+                ReCalcNods();
             }
-            
-            for(int i = 0;i<_nodes.Count;i++)
+            else
             {
-                _nodes[i].Id = i;
+                //to implement notification system
             }
 
-            ReCalcNods();
+
 
         }
 

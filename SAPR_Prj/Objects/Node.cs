@@ -8,10 +8,56 @@ namespace SAPR_Prj.Objects
 {
     class Node
     {
-        public int Id { get; set; } = 0;
-        public float PosX { get; set; } = 0;
+        private int _id = 0;
+        private float _posX = 0;
+
+        public int Id
+        {
+            set
+            {
+                if (value >= 0)
+                {
+                    _id = value;
+                }
+
+                else
+                {
+                   //
+                }
+
+            }
+
+            get
+            {
+                return _id;
+            }
+
+        }
+
+        public float PosX
+        {
+            set
+            {
+                if(value>=0)
+                {
+                    _posX = value;
+                }
+                else
+                {
+                    //
+                }
+            }
+
+            get
+            {
+                return _posX;
+            }
+        }
+
         public bool IsHaveRigidSupp { get; set; } = false;
+
         public float LongForce { get; set; } = 0;
+
         public Rod TiedRod { get; set; } = null;
 
         public Node()

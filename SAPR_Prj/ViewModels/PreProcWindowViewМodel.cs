@@ -29,7 +29,6 @@ namespace SAPR_Prj.ViewModels
         public PreProcWindowViewМodel()
         {
             _model.InitModel();
-            _model.AddRods(2);
         }
 
 
@@ -63,9 +62,10 @@ namespace SAPR_Prj.ViewModels
             {
                 return new DelegateCommand((obj =>
                 {
-                    int id = (int)obj;
+                    _model.DeleteRod((int)obj);
+                    OnPropertyChanged();
 
-                }));
+                }),(obj)=>_model.NumOfRods>1);
 
             }
         }
@@ -76,7 +76,7 @@ namespace SAPR_Prj.ViewModels
             {
                 return new DelegateCommand((obj =>
                 {
-                    if(obj!=null && (int)obj>0)
+                    if(obj!=null)
                     {
                         _model.AddRods((int)obj);
                         OnPropertyChanged();
