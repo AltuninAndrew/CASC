@@ -83,5 +83,15 @@ namespace SAPR_Prj.ViewModels
             }
         }
 
+        //public ICommand SaveModel
+        //{
+
+        //}
+
+        //public ICommand LoadModel
+        //{
+
+        //}
+
     }
 }

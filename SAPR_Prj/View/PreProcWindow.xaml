@@ -129,7 +129,7 @@
         </UserControl>
         <ComboBox Name="BoxSuppVariant" SelectedIndex="{Binding Path=DataContext.RigidSuppState, ElementName=BoxSuppVariant, Mode=OneWayToSource}" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
         <Label Content="Жесткие опоры" Grid.Column="1" HorizontalAlignment="Left" Margin="397.887,10.019,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" Height="27"/>
-
+        
     </Grid>
 
 

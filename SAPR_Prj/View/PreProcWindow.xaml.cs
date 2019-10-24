@@ -26,12 +26,8 @@ namespace SAPR_Prj
         public PreProcWindow()
         {
             InitializeComponent();
-            //var obj = DataContext;
+            
         }
 
-        private void BoxSuppVariant_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SAPR_Prj.Objects;
+using SAPR_Prj.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +37,6 @@ namespace SAPR_Prj.Models
 
         }
 
-
-
         public PreProcModel()
         {
             _nodes = new List<Node>();
@@ -53,7 +52,7 @@ namespace SAPR_Prj.Models
             //firstNode.IsHaveRigidSupp = true;
             _nodes.Add(firstNode);
             _nodes.Add(new Node(1, firstRod.Length, firstRod));
-           
+
         }
 
         public IReadOnlyList<Rod> GetRods()
@@ -126,6 +125,22 @@ namespace SAPR_Prj.Models
             for(int i = 0;i<_rods.Count;i++)
             {
                 _nodes[i + 1].PosX = _rods[i].Length + _nodes[i].PosX;
+            }
+        }
+
+        public void SaveData(string path, string fileName)
+        {
+            FileProjectManager.SaveFile(new ModelToSave { Rods = _rods, Nodes = _nodes, RigidSuppType = _numRigidSup }, path,fileName);
+        }
+
+        public void LoadModelFromFile(string path)
+        {
+            ModelToSave fromModel = FileProjectManager.LoadFile(path);
+            if(fromModel.Rods!=null)
+            {
+                _rods = fromModel.Rods;
+                _nodes = fromModel.Nodes;
+                _numRigidSup = fromModel.RigidSuppType;
             }
         }
 
