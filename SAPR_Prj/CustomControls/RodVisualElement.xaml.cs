@@ -77,10 +77,14 @@ namespace SAPR_Prj.CustomControls
                 cd.Width = new GridLength(12);
                 MainGrid.ColumnDefinitions.Add(cd);
             }
+            Grid.SetColumnSpan(ArowNodeForceObj, numOfGrid);
+            Grid.SetColumnSpan(ArowNodeForceLeftObj, numOfGrid);
             Grid.SetColumnSpan(RodElement, numOfGrid);
             Grid.SetColumnSpan(RigidSuppObjRight, numOfGrid);
             Grid.SetColumnSpan(TextForce, numOfGrid);
             Grid.SetColumnSpan(TextLength, numOfGrid);
+            Grid.SetColumnSpan(TextForceNode, numOfGrid);
+           
 
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SAPR_Prj.Objects
 {
-    class Node
+    public class Node
     {
         private int _id = 0;
         private float _posX = 0;

@@ -72,6 +72,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CustomControls\ArrowNodeForceLeft.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\ArrowNodeForce.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomControls\Arrow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +105,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="CustomControls\ArrowNodeForceLeft.xaml.cs">
+      <DependentUpon>ArrowNodeForceLeft.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ArrowNodeForce.xaml.cs">
+      <DependentUpon>ArrowNodeForce.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\Arrow.xaml.cs">
       <DependentUpon>Arrow.xaml</DependentUpon>
     </Compile>
@@ -151,6 +165,9 @@
     <Resource Include="Resources\ArrowSprite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ArrowSpriteNodeForce.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

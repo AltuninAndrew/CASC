@@ -16,8 +16,11 @@
         <Rectangle  Name="RodElement" Height="Auto" Fill="White" Stroke="Black" Margin="0,8,-0.302,6.811" Grid.RowSpan="3"/>
         <Rectangle Name="RigidSuppObjLeft" Height="Auto" Fill="Red" Margin="-2,13,0,12.811" Grid.RowSpan="3" HorizontalAlignment="Left" Width="6"/>
         <Rectangle Name="RigidSuppObjRight" Height="Auto" Fill="Red" Margin="0,13,-2.302,12.811" Grid.RowSpan="3" HorizontalAlignment="Right" Width="6"></Rectangle>
-        <TextBlock FontSize="12" Name="TextForce" TextAlignment="Center" Margin="12,-9,9.698,0" TextWrapping="Wrap" Text="E" Height="16" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF000EFF"/>
+        <TextBlock FontSize="12" Name="TextForce" TextAlignment="Center" Margin="0,-9,-0.302,0" TextWrapping="Wrap" Text="E" Height="16" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF000EFF"/>
         <TextBlock FontSize="12" Name="TextLength" Text ="L" TextAlignment="Center" Margin="20,0,16.698,-10.189" Grid.Row="2" TextWrapping="Wrap" FontWeight="Bold"  Foreground="#FF000EFF" Height="16" VerticalAlignment="Bottom"/>
+        <local:ArrowNodeForce x:Name="ArowNodeForceObj" Margin="0,16,-10.302,15.811" HorizontalAlignment="Right" Width="41" Grid.RowSpan="3"/>
+        <local:ArrowNodeForceLeft x:Name="ArowNodeForceLeftObj" Margin="0,16,-10.302,17.811" HorizontalAlignment="Right" Width="40" Grid.RowSpan="3"/>
+        <TextBlock FontSize="15" x:Name="TextForceNode" Text ="F" TextAlignment="Center" Margin="46,5.17,4.698,4.811" Grid.Row="1" TextWrapping="Wrap" FontWeight="Bold"  Foreground="#FF71C837" Grid.RowSpan="2"/>
 
     </Grid>
 </UserControl>

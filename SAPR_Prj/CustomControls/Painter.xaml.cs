@@ -25,6 +25,8 @@ namespace SAPR_Prj.CustomControls
         public static DependencyProperty NumberOfRodsProperty = DependencyProperty.Register("NumOfRods", typeof(int), typeof(Painter));
         public static DependencyProperty RodsProperty = DependencyProperty.Register("Rods", typeof(ObservableCollection<Rod>), typeof(Painter));
         public static DependencyProperty NumberOfRigidSuppProperty = DependencyProperty.Register("TypeRigidSupp", typeof(int), typeof(Painter));
+        public static DependencyProperty NodesProperty = DependencyProperty.Register("Nodes", typeof(ObservableCollection<Node>), typeof(Painter));
+
 
         public int NumOfRods
         {
@@ -38,6 +40,13 @@ namespace SAPR_Prj.CustomControls
             get { return (ObservableCollection<Rod>)GetValue(RodsProperty); }
             set { SetValue(RodsProperty, value); }
         }
+
+        public ObservableCollection<Node> Nodes
+        {
+            get { return (ObservableCollection<Node>)GetValue(NodesProperty); }
+            set { SetValue(NodesProperty, value); }
+        }
+
 
         public int TypeRigidSupp
         {
@@ -66,8 +75,26 @@ namespace SAPR_Prj.CustomControls
             {
                 RodVisualElement rodVisualElement = new RodVisualElement();
 
+                float longForceInNode = Nodes.ElementAt(element.Id + 1).LongForce;
 
-               
+                if(longForceInNode>0)
+                {
+                    rodVisualElement.ArowNodeForceLeftObj.Visibility = Visibility.Hidden;
+                    rodVisualElement.TextForceNode.Text = String.Format("{0}F", longForceInNode);
+                }
+                else if(longForceInNode<0)
+                {
+                    rodVisualElement.ArowNodeForceObj.Visibility = Visibility.Hidden;
+                    rodVisualElement.TextForceNode.Text = String.Format("{0}F", longForceInNode);
+                }
+                else
+                {
+                    rodVisualElement.ArowNodeForceObj.Visibility = Visibility.Hidden;
+                    rodVisualElement.ArowNodeForceLeftObj.Visibility = Visibility.Hidden;
+                    rodVisualElement.TextForceNode.Visibility = Visibility.Hidden;
+                }
+
+
                 rodVisualElement.Width *= element.Length;
                 rodVisualElement.Height *=element.Sectional;
                 rodVisualElement.RigidSuppObjLeft.Visibility = Visibility.Hidden;
