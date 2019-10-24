@@ -49,17 +49,6 @@ namespace SAPR_Prj.ViewModels
             get { return new ObservableCollection<Node>(_model.GetNodes()); }
         }
 
-        public void SaveModel()
-        {
-            _model.SaveData(@"C:\Users\Al_an\OneDrive\Рабочий стол\Temp", "test");
-        }
-
-        public void LoadModel()
-        {
-            _model.LoadModelFromFile(@"C:\Users\Al_an\OneDrive\Рабочий стол\Temp\test06.json");
-            OnPropertyChanged();
-        }
-
         public ICommand SetRigidSupp
         {
             get
