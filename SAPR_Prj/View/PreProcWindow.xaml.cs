@@ -26,9 +26,19 @@ namespace SAPR_Prj
         public PreProcWindow()
         {
             InitializeComponent();
-            //var obj = DataContext;
+            
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PreProcWindowViewМodel obj = (PreProcWindowViewМodel)DataContext;
+            obj.SaveModel();
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PreProcWindowViewМodel obj = (PreProcWindowViewМodel)DataContext;
+            obj.LoadModel();
+        }
     }
 }

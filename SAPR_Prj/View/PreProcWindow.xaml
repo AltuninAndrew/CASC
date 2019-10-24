@@ -130,6 +130,8 @@
         <ComboBox Name="BoxSuppVariant" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
         <Button Content="Установить" Grid.Column="1" Command="{Binding SetRigidSupp}" CommandParameter="{Binding ElementName=BoxSuppVariant, Path=SelectedValue}" HorizontalAlignment="Left" Margin="507.887,12.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75"/>
         <Label Content="Жесткие опоры" Grid.Column="1" HorizontalAlignment="Left" Margin="397.887,10.019,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" Height="27"/>
+        <Button Content="Save" Grid.Column="3" HorizontalAlignment="Left" Margin="40.943,9.774,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Load" Grid.Column="3" HorizontalAlignment="Left" Margin="40.943,54.774,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
     </Grid>
 
