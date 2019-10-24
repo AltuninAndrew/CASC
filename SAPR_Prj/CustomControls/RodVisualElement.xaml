@@ -14,8 +14,8 @@
         </Grid.RowDefinitions>
 
         <Rectangle  Name="RodElement" Height="Auto" Fill="White" Stroke="Black" Margin="0,8,-0.302,6.811" Grid.RowSpan="3"/>
-        <Rectangle Name="RigidSuppObjLeft" Height="Auto" Fill="#FFFFB200" Margin="0,13,0,12.811" Grid.RowSpan="3" HorizontalAlignment="Left" Width="3"/>
-        <Rectangle Name="RigidSuppObjRight" Height="Auto" Fill="#FFFFB200" Margin="0,13,-0.302,12.811" Grid.RowSpan="3" HorizontalAlignment="Right" Width="3"></Rectangle>
+        <Rectangle Name="RigidSuppObjLeft" Height="Auto" Fill="Red" Margin="-2,13,0,12.811" Grid.RowSpan="3" HorizontalAlignment="Left" Width="6"/>
+        <Rectangle Name="RigidSuppObjRight" Height="Auto" Fill="Red" Margin="0,13,-2.302,12.811" Grid.RowSpan="3" HorizontalAlignment="Right" Width="6"></Rectangle>
         <TextBlock FontSize="12" Name="TextForce" TextAlignment="Center" Margin="12,-9,9.698,0" TextWrapping="Wrap" Text="E" Height="16" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF000EFF"/>
         <TextBlock FontSize="12" Name="TextLength" Text ="L" TextAlignment="Center" Margin="20,0,16.698,-10.189" Grid.Row="2" TextWrapping="Wrap" FontWeight="Bold"  Foreground="#FF000EFF" Height="16" VerticalAlignment="Bottom"/>
 
