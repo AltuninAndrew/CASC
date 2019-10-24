@@ -1,7 +1,4 @@
-﻿using SAPR_Prj.Models;
-using SAPR_Prj.Objects;
-using SAPR_Prj.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SAPR_Prj
+namespace SAPR_Prj.CustomControls
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ArrowLeft.xaml
     /// </summary>
-    public partial class PreProcWindow : Window
+    public partial class ArrowLeft : UserControl
     {
-        public PreProcWindow()
+        public ArrowLeft()
         {
             InitializeComponent();
-            //var obj = DataContext;
         }
-
-
     }
 }

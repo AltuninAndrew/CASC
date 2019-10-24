@@ -54,7 +54,7 @@ namespace SAPR_Prj.Objects
             }
         }
 
-        public bool IsHaveRigidSupp { get; set; } = false;
+        //public bool IsHaveRigidSupp { get; set; } = false;
 
         public float LongForce { get; set; } = 0;
 
@@ -77,7 +77,7 @@ namespace SAPR_Prj.Objects
             Id = id;
             PosX = posX;
             TiedRod = tiedRod;
-            IsHaveRigidSupp = isHaveRigidSupp;
+            //IsHaveRigidSupp = isHaveRigidSupp;
             LongForce = longForce;
         }
 

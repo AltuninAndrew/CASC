@@ -1,18 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SAPR_Prj.Objects
 {
-    class Rod
+    public class Rod: INotifyPropertyChanged
     {
         private int _id = 0;
         private float _length = 1;
         private float _sectional = 1;
         private float _eLascticModulus = 1;
         private float _allowStress = 1;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
 
         public int Id
         {
@@ -44,6 +53,7 @@ namespace SAPR_Prj.Objects
                 if (value > 0)
                 {
                     _length = value;
+                    OnPropertyChanged();
                 }
                 else
                 {

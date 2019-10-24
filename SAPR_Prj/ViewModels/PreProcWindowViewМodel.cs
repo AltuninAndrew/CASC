@@ -23,8 +23,15 @@ namespace SAPR_Prj.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
         private readonly PreProcModel _model = new PreProcModel();
+
+        public string[] RigidSuppVariant { get; } = { "Нет", "Слева", "Справа", "Обе" };
+
+        public int RigidSuppState
+        {
+            get { return _model.RigidSupp; }
+            set { _model.RigidSupp = value; }
+        }
 
         public PreProcWindowViewМodel()
         {
@@ -43,15 +50,39 @@ namespace SAPR_Prj.ViewModels
         }
 
 
-        public ICommand CommitChange
+        public ICommand SetRigidSupp
         {
             get
             {
 
                 return new DelegateCommand((obj =>
                 {
-                    _model.ReCalcNods();
-                    
+                 
+                    if(obj !=null)
+                    {
+                        switch ((string)obj)
+                        {
+                            case "Нет":
+                                RigidSuppState = 0;
+                                break;
+                            case "Слева":
+                                RigidSuppState = 1;
+                                break;
+                            case "Справа":
+                                RigidSuppState = 2;
+                                break;
+                            case "Обе":
+                                RigidSuppState = 3;
+                                break;
+                            default:
+                                RigidSuppState = 0;
+                                break;
+
+                        }
+                        OnPropertyChanged();
+                    }
+                   
+
                 }));
             }
         }
