@@ -29,8 +29,12 @@ namespace SAPR_Prj.ViewModels
 
         public int RigidSuppState
         {
-            get { return _model.RigidSupp; }
-            set { _model.RigidSupp = value; }
+            get => _model.RigidSupp;
+            set
+            {
+                _model.RigidSupp = value;
+                OnPropertyChanged(nameof(RigidSuppState));
+            }
         }
 
         public PreProcWindowViewМodel()
@@ -47,44 +51,6 @@ namespace SAPR_Prj.ViewModels
         public ObservableCollection<Node> Nodes
         {
             get { return new ObservableCollection<Node>(_model.GetNodes()); }
-        }
-
-
-        public ICommand SetRigidSupp
-        {
-            get
-            {
-
-                return new DelegateCommand((obj =>
-                {
-                 
-                    if(obj !=null)
-                    {
-                        switch ((string)obj)
-                        {
-                            case "Нет":
-                                RigidSuppState = 0;
-                                break;
-                            case "Слева":
-                                RigidSuppState = 1;
-                                break;
-                            case "Справа":
-                                RigidSuppState = 2;
-                                break;
-                            case "Обе":
-                                RigidSuppState = 3;
-                                break;
-                            default:
-                                RigidSuppState = 0;
-                                break;
-
-                        }
-                        OnPropertyChanged();
-                    }
-                   
-
-                }));
-            }
         }
 
         public ICommand DellRods

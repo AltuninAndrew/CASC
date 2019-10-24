@@ -29,6 +29,9 @@ namespace SAPR_Prj
             //var obj = DataContext;
         }
 
+        private void BoxSuppVariant_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }
