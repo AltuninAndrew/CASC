@@ -44,7 +44,7 @@
 
         <Button Name="BtnAddRods" 
                 Command="{Binding AddRods}" 
-                CommandParameter="{Binding ElementName=BoxNumOfRods,Path=Value}" 
+                CommandParameter="{Binding ElementName=BoxNumOfRods, Path=Value}" 
                 Grid.Column="1" Grid.Row="3" 
                 Content="Add rods" HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center" Background="#FF0096FF" 
@@ -127,8 +127,7 @@
         <UserControl Grid.ColumnSpan="3" Grid.Row="6" Margin="0,2.226,0.057,0.113">
             <customcontrols:Painter x:Name="pain" Nodes="{Binding Nodes}" NumOfRods="{Binding Rods.Count}" TypeRigidSupp="{Binding RigidSuppState}" Rods="{Binding Rods}" Margin="24,0,0.057,9.623"/>
         </UserControl>
-        <ComboBox Name="BoxSuppVariant" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Установить" Grid.Column="1" Command="{Binding SetRigidSupp}" CommandParameter="{Binding ElementName=BoxSuppVariant, Path=SelectedValue}" HorizontalAlignment="Left" Margin="507.887,12.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75"/>
+        <ComboBox Name="BoxSuppVariant" SelectedIndex="{Binding Path=DataContext.RigidSuppState, ElementName=BoxSuppVariant, Mode=OneWayToSource}" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
         <Label Content="Жесткие опоры" Grid.Column="1" HorizontalAlignment="Left" Margin="397.887,10.019,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" Height="27"/>
         
     </Grid>
