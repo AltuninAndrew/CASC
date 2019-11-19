@@ -58,6 +58,7 @@ namespace SAPR_Prj.CustomControls
         public Painter()
         {
             InitializeComponent();
+            
 
         }
 
@@ -69,10 +70,11 @@ namespace SAPR_Prj.CustomControls
 
             int count = Rods.Count;
 
-            //List<RodVisualElement> rodsElement = new List<RodVisualElement>();
             List<RodVisualElement> rodElements = new List<RodVisualElement>();
+            
             foreach (var element in Rods)
             {
+
                 RodVisualElement rodVisualElement = new RodVisualElement();
 
                 float longForceInNode = Nodes.ElementAt(element.Id + 1).LongForce;
@@ -133,10 +135,24 @@ namespace SAPR_Prj.CustomControls
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Element_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             Paint(e);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Paint(e);
+            Rods.CollectionChanged += Rods_CollectionChanged;
+            foreach(var element in Rods)
+            {
+                element.PropertyChanged += Element_PropertyChanged;
+            }
+        }
+
+        private void Rods_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+
+        }
     }
 }

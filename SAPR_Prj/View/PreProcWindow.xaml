@@ -17,8 +17,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="24*"/>
             <RowDefinition Height="20*"/>
+            <RowDefinition Height="24*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="206*"/>
             <RowDefinition Height="9*"/>
@@ -122,14 +122,22 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        
+
 
         <UserControl Grid.ColumnSpan="3" Grid.Row="6" Margin="0,2.226,0.057,0.113">
             <customcontrols:Painter x:Name="pain" Nodes="{Binding Nodes}" NumOfRods="{Binding Rods.Count}" TypeRigidSupp="{Binding RigidSuppState}" Rods="{Binding Rods}" Margin="24,0,0.057,9.623"/>
         </UserControl>
-        <ComboBox Name="BoxSuppVariant" SelectedIndex="{Binding Path=DataContext.RigidSuppState, ElementName=BoxSuppVariant, Mode=OneWayToSource}" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Жесткие опоры" Grid.Column="1" HorizontalAlignment="Left" Margin="397.887,10.019,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" Height="27"/>
-        
+        <ComboBox Name="BoxSuppVariant" SelectedIndex="{Binding Path=DataContext.RigidSuppState, ElementName=BoxSuppVariant, Mode=OneWayToSource}" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120" Height="21"/>
+        <Label Content="Жесткие опоры" Grid.Column="1" HorizontalAlignment="Left" Margin="397.887,9.642,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" Height="27" Width="89"/>
+        <DockPanel HorizontalAlignment="Left" Height="49" LastChildFill="False" Margin="18,0,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="99" Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock="Top" Margin="-17,0,-1160.283,0" Height="25">
+                <MenuItem Header="Файл" Height="25" Width="45" Background="White" FontFamily="Franklin Gothic Demi" FontSize="13">
+                    <MenuItem Header="Сохранить" Click="MenuItemSave_Click"/>
+                    <MenuItem Header="Открыть" Click="MenuItemOpen_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
     </Grid>
 
 

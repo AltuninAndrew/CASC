@@ -127,6 +127,7 @@
       <DependentUpon>RodVisualElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\PreProcModel.cs" />
+    <Compile Include="Models\ProcModel.cs" />
     <Compile Include="Objects\Node.cs" />
     <Compile Include="Objects\Rod.cs" />
     <Compile Include="Services\FileProjectManager.cs" />
@@ -173,6 +174,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ArrowSpriteNodeForce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\microsoft-word-save-icon_342005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

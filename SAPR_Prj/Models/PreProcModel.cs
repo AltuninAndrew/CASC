@@ -13,7 +13,7 @@ namespace SAPR_Prj.Models
         private const int MaxNumOfRodsInSystem = 1000;
         private List<Node> _nodes;
         private List<Rod> _rods;
-        private int _numRigidSup = 0;
+        private int _typeRigidSup = 0;
         public int NumOfRods { get => _rods.Count(); }
         public int NumOfNodes { get => _nodes.Count(); }
         public int RigidSupp
@@ -22,7 +22,7 @@ namespace SAPR_Prj.Models
             {
                 if (value >= 0 && value<=3)
                 {
-                    _numRigidSup = value;
+                    _typeRigidSup = value;
                 }
                 else
                 {
@@ -32,7 +32,7 @@ namespace SAPR_Prj.Models
 
             get
             {
-                return _numRigidSup;
+                return _typeRigidSup;
             }
 
         }
@@ -41,6 +41,7 @@ namespace SAPR_Prj.Models
         {
             _nodes = new List<Node>();
             _rods = new List<Rod>();
+           
         }
 
         public void InitModel()
@@ -128,9 +129,9 @@ namespace SAPR_Prj.Models
             }
         }
 
-        public void SaveData(string path, string fileName)
+        public void SaveData(string path)
         {
-            FileProjectManager.SaveFile(new ModelToSave { Rods = _rods, Nodes = _nodes, RigidSuppType = _numRigidSup }, path,fileName);
+            FileProjectManager.SaveFile(new ModelToSave { Rods = _rods, Nodes = _nodes, RigidSuppType = _typeRigidSup }, path);
         }
 
         public void LoadModelFromFile(string path)
@@ -140,7 +141,7 @@ namespace SAPR_Prj.Models
             {
                 _rods = fromModel.Rods;
                 _nodes = fromModel.Nodes;
-                _numRigidSup = fromModel.RigidSuppType;
+                _typeRigidSup = fromModel.RigidSuppType;
             }
         }
 

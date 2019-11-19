@@ -83,15 +83,36 @@ namespace SAPR_Prj.ViewModels
             }
         }
 
-        //public ICommand SaveModel
-        //{
+        public ICommand SaveModel
+        {
+            get
+            {
+                return new DelegateCommand((obj =>
+                {
+                   if(obj.ToString().EndsWith(".json"))
+                   {
+                        _model.SaveData(obj.ToString());
+                   }
 
-        //}
+                }));
+            }
+        }
 
-        //public ICommand LoadModel
-        //{
+        public ICommand LoadModel
+        {
+            get
+            {
+                return new DelegateCommand((obj =>
+                {
+                    if (obj.ToString().EndsWith(".json"))
+                    {
+                        _model.LoadModelFromFile(obj.ToString());
+                        OnPropertyChanged();
+                    }
 
-        //}
+                }));
+            }
+        }
 
     }
 }

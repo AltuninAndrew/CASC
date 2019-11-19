@@ -15,11 +15,11 @@ namespace SAPR_Prj.Services
     {
 
 
-        public static void SaveFile(ModelToSave model,string path,string nameOfFile)
+        public static void SaveFile(ModelToSave model,string path)
         {
             string jsonData = JsonConvert.SerializeObject(model);
             var Model = JsonConvert.DeserializeObject<ModelToSave>(jsonData);
-            File.WriteAllText(path+@"\"+nameOfFile+".json",jsonData);
+            File.WriteAllText(path,jsonData);
             
         }
 

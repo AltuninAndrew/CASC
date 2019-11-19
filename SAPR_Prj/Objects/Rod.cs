@@ -75,6 +75,7 @@ namespace SAPR_Prj.Objects
                 if (value > 0)
                 {
                     _sectional = value;
+                    OnPropertyChanged();
                 }
                 else
                 {
@@ -95,6 +96,7 @@ namespace SAPR_Prj.Objects
                 if (value > 0)
                 {
                     _eLascticModulus = value;
+                    OnPropertyChanged();
                 }
                 else
                 {
@@ -115,6 +117,7 @@ namespace SAPR_Prj.Objects
                 if (value > 0)
                 {
                     _allowStress = value;
+                    OnPropertyChanged();
                 }
                 else
                 {
