@@ -127,6 +127,11 @@
         <UserControl Grid.ColumnSpan="3" Grid.Row="6" Margin="0,2.226,0.057,0.113">
             <customcontrols:Painter x:Name="pain" Nodes="{Binding Nodes}" NumOfRods="{Binding Rods.Count}" TypeRigidSupp="{Binding RigidSuppState}" Rods="{Binding Rods}" Margin="24,0,0.057,9.623"/>
         </UserControl>
+
+        <UserControl Grid.Column="4" Grid.Row="4">
+            <customcontrols:ProcessorControl Background="White" Nodes="{Binding Nodes}"  Rods="{Binding Rods}" TypeRigidSupp="{Binding RigidSuppState}"  Margin="0,0,0.396,0.491"/>
+        </UserControl>
+        
         <ComboBox Name="BoxSuppVariant" SelectedIndex="{Binding Path=DataContext.RigidSuppState, ElementName=BoxSuppVariant, Mode=OneWayToSource}" Grid.Column="1" ItemsSource="{Binding RigidSuppVariant}"  HorizontalAlignment="Left" Margin="382.887,11.094,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120" Height="21"/>
         <Label Content="Жесткие опоры" Grid.Column="1" HorizontalAlignment="Left" Margin="397.887,9.642,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" Height="27" Width="89"/>
         <DockPanel HorizontalAlignment="Left" Height="49" LastChildFill="False" Margin="18,0,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="99" Grid.ColumnSpan="2">

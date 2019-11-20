@@ -95,6 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControls\ProcessorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControls\RodVisualElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +126,9 @@
     </Compile>
     <Compile Include="CustomControls\Painter.xaml.cs">
       <DependentUpon>Painter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ProcessorControl.xaml.cs">
+      <DependentUpon>ProcessorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\RodVisualElement.xaml.cs">
       <DependentUpon>RodVisualElement.xaml</DependentUpon>
