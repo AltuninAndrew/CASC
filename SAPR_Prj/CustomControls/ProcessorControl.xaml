@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SAPR_Prj.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500" Background="#FFBBB9B9">
-    <Grid Width="500" Margin="0,0,-0.075,-130.377" Height="230" VerticalAlignment="Top" Background="#FFE8E8E8">
+    <Grid Width="500" Margin="0,0,-0.075,-137.377" Height="237" VerticalAlignment="Top" Background="#FFE8E8E8">
         <Grid.RowDefinitions>
             <RowDefinition Height="0*"/>
             <RowDefinition Height="11*"/>
@@ -19,8 +19,7 @@
                 <MenuItem Header="Рассчитать" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <RichTextBox IsReadOnly="True" Name="txtBox" HorizontalAlignment="Left" Height="166" Margin="10,3.283,0,0" Grid.Row="2" VerticalAlignment="Top" Width="474">
-        </RichTextBox>
+        <RichTextBox IsReadOnly="True" Name="txtBox" Height="160" Margin="10,0.283,0,0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="448"/>
 
 
     </Grid>

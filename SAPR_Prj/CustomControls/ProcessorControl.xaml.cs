@@ -54,6 +54,8 @@ namespace SAPR_Prj.CustomControls
             
         }
 
+
+        //rewrite
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             procModel = new ProcModel(Nodes.ToList(),Rods.ToList(),TypeRigidSupp);
@@ -77,10 +79,56 @@ namespace SAPR_Prj.CustomControls
                 vecReactRes += element + " ";
             }
 
-            txtBox.AppendText("\n" + vecReactRes + "  -React vector");
+            string vecMovement = "";
+            foreach (var element in procModel.vectorMovement)
+            {
+                vecMovement += element + " ";
+            }
+
+            string vecNullN = "";
+            foreach(var element in procModel.vectorFromNullN)
+            {
+                vecNullN += element + " ";
+            }
+
+            string vecLengthN = "";
+            foreach (var element in procModel.vectorFromLengthN)
+            {
+                vecLengthN += element + " ";
+            }
+
+            string vecNullU = "";
+            foreach (var element in procModel.vectorFromNullU)
+            {
+                vecNullU += element + " ";
+            }
+
+            string vecLengthU = "";
+            foreach (var element in procModel.vectorFromLengthU)
+            {
+                vecLengthU += element + " ";
+            }
+
+            string vecNullNormStress = "";
+            foreach (var element in procModel.vectorFromNullNormStress)
+            {
+                vecNullNormStress += element + " ";
+            }
+
+            string vecLengthNormStress = "";
+            foreach (var element in procModel.vectorFromLengthNormStress)
+            {
+                vecLengthNormStress += element + " ";
+            }
 
 
-            
+
+            txtBox.AppendText("\n" + vecReactRes + "  -React vector" + "\n" + vecMovement + " -Movement vector" +"\n" + vecLengthN +" -Vector N(L)"
+                 + "\n" + vecNullN + " -Vector N(0)" + "\n" + vecNullU + " -Vector U(0)"+ "\n" + vecLengthU +" VectorU(L)"+
+                 "\n" + vecNullNormStress + " -Vector normal stress(0)" +"\n" + vecLengthNormStress + " -Vector normal stress(L)");
+
+
+
         }
     }
 }
