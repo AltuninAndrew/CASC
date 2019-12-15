@@ -1,15 +1,8 @@
 ﻿using SAPR_Prj.Commands;
 using SAPR_Prj.Models;
 using SAPR_Prj.Objects;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
 using System.Windows.Input;
 
 namespace SAPR_Prj.ViewModels
